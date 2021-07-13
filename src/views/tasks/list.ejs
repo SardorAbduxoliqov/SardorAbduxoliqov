@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+        <% if (data !=null) {%>
+            <form action="/tasks/create" method="post">
+                        <h3>
+                            <%- data.fileSizeBytes %>
+                        </h3>
+                    <div class="item-center">
+                        <img class="main_img" src="<%- data.url %>" alt="rasm bo'lishi kerak edi.">
+                    </div>
+            <% } else { %>
+                <button type="submit" >Submit</button>
+            </form>
+                <h1>No image found</h1>
+                <% } %>
+</body>
+
+</html>
