@@ -1,6 +1,6 @@
 import express, { RequestHandler } from 'express';
 import { connect } from './database';
-import path from 'path';
+import  * as path from 'path';
 
 // Routes
 import tasksRoutes from './routes/tasks';
@@ -24,3 +24,7 @@ app.listen(app.get('port'), () => {
  connect();
   console.log('>>> Server is running at', app.get('port'));
 });
+
+function __dirname(__dirname: any, arg1: string): any {
+  throw new Error('Function not implemented.');
+}
