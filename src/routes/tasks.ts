@@ -5,6 +5,6 @@ const router = Router();
 // Model
 import Task from '../models/Task';
 
-router.get('/list', controller.getListOfImage);
+router.get('/', controller.getListOfImage);
 
 export default router;

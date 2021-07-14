@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }) as RequestHandler);
 app.use(express.json() as RequestHandler);
 
-app.use('/tasks', tasksRoutes);
+app.use('/', tasksRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(__dirname + 'public/css'));
