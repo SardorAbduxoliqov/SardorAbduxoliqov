@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-
-<body>
-    <div class="topnav">
-        <a  href="/">Home</a>
-        <a class="active" href="/all">All</a>
-        <div class="search-container">
-          <form action="/action_page.php">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit" class="button2">Submit</button>
-          </form>
-        </div>
-      </div>
-        <% if (data != null) {%>
+<%- include('../includes/head') %>
+   <%- include('../includes/header') %>
+       
+   <% if (data != null) {%>
                 <div class="center">
                   <h1>Images are sorted by size.</h1>
                  <% data.forEach(item => { %>
@@ -36,5 +17,4 @@
                 <% } %>
             </div>
 </body>
-
 </html>

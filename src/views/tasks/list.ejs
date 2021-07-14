@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random</title>
-  <link rel="stylesheet" href="/css/main.css">
-</head>
-
-<body>
-  <div class="topnav">
-    <a class="active" href="/">Home</a>
-    <a href="/all">All</a>
-    <div class="search-container">
-      <form action="/api" method="POST">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
+<%- include('../includes/head') %>
+  <%- include('../includes/header') %>
   <% if (data !=null) {%>
+    
     <div class="center form_class">
       <h3 id="fileSizeBytes">
         Image Size: <%- data.fileSizeBytes %>
@@ -35,6 +16,6 @@
         <button type="submit" class="button button2">Save Image</button>
       </form>
     </div>
-</body>
 
+</body>
 </html>
