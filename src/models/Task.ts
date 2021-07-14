@@ -13,18 +13,3 @@ const schema = new Schema({
 });
 
 export default model('Task', schema);
-// import { Schema, model } from 'mongoose';
-
-// const TaskSchema = new Schema({
-//     fileSizBytes: {
-//         type: Number,
-//         required: true,
-//     },
-//     url: {
-//         type: String,
-//         required: true,
-//         lowercase: true
-//     }
-// }, {timestamps: true});
-
-// export default model('Task', TaskSchema);

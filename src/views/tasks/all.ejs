@@ -11,30 +11,29 @@
 
 <body>
     <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a  href="/all">All</a>
+        <a  href="/">Home</a>
+        <a class="active" href="/all">All</a>
         <div class="search-container">
           <form action="/action_page.php">
             <input type="text" placeholder="Search.." name="search">
-            <button type="submit">Submit</button>
+            <button type="submit" class="button2">Submit</button>
           </form>
         </div>
       </div>
         <% if (data != null) {%>
-            <form action="/tasks/create" method="post" class="form_class">
                 <div class="center">
+                 <% data.forEach(item => { %>
                         <h3>
-                           Image Size:  <%- data.fileSizeBytes %>
+                           Image Size:  <%= item.fileSizeBytes %>
                         </h3>
                     <div class="item-center">
-                        <img class="main_img" src="<%- data.url %>" alt="rasm bo'lishi kerak edi.">
+                        <img class="main_img" src="<%= item.url %>" alt="rasm bo'lishi kerak edi.">
                     </div>
+                    <% }) %>
             <% } else { %>
                 <h1>No image found</h1>
                 <% } %>
-                <button type="submit" class="button button2">Submit</button>
             </div>
-            </form>
 </body>
 
 </html>
