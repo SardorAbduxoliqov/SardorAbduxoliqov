@@ -1,22 +1,26 @@
-import { Router, Request, Response, NextFunction } from 'express';
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+import { Request, Response } from 'express';
 import axios from 'axios';
 import Task from '../models/Task';
 
-const getListOfImage = async (req: Request, res: Response, next: NextFunction) => {
-  const url_api = 'https://random.dog/woof.json';
+const URL_API = 'https://random.dog/woof.json';
+
+// eslint-disable-next-line consistent-return
+const getListOfImage = async (req: Request, res: Response) => {
   try {
-    const imageData = await axios.get(url_api);
-    res.render('tasks/list', {data: imageData.data })
+    const imageData = await axios.get(URL_API);
+    return  res.render('tasks/list', {data: imageData.data })
   } catch (error) {
     console.log(error.message);
   }
 };
 
-const getAll = async (req: Request, res: Response, next: NextFunction) => {
+// eslint-disable-next-line consistent-return
+const getAll = async (req: Request, res: Response) => {
   try {
-    const images = await Task.find();
-    console.log(images);
-    res.render('tasks/all', {data: images})
+    const images = await Task.find().sort({ "fileSizeBytes": 1 } );
+    console.log(images[1]);
+    return res.render('tasks/all', {data: images})
   } catch (error) {
     console.log(error.message);
   }
@@ -24,14 +28,16 @@ const getAll = async (req: Request, res: Response, next: NextFunction) => {
 
 const postListOfImage = async (
   req: Request,
-  res: Response,
-  next: NextFunction
+  res: Response
+// eslint-disable-next-line consistent-return
 ) => {
-  const url_api = 'https://random.dog/woof.json';
-  try {
-    const imageData = await axios.get(url_api);
-    console.log(imageData.data, "post request is working!");
-    res.status(200).json({ data: imageData.data });
+  // eslint-disable-next-line no-undef
+   try {
+    const imageData = await axios.get(URL_API);
+    console.log(imageData, 'post request is working!');
+    await Task.insertMany(imageData.data);
+    return res.redirect("/");
+    // return res.status(201).render('tasks/list', {data: imageData});
   } catch (error) {
     console.log(error.message);
   }

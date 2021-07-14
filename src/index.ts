@@ -1,6 +1,9 @@
 import express, { RequestHandler } from 'express';
-import { connect } from './database';
+// eslint-disable-next-line import/order
 import  * as path from 'path';
+
+// eslint-disable-next-line import/order
+import { connect } from './database';
 
 // Routes
 import tasksRoutes from './routes/tasks';
@@ -18,13 +21,9 @@ app.use(express.json() as RequestHandler);
 app.use('/', tasksRoutes);
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/css', express.static(__dirname + 'public/css'));
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
 
 app.listen(app.get('port'), () => {
  connect();
   console.log('>>> Server is running at', app.get('port'));
 });
-
-function __dirname(__dirname: any, arg1: string): any {
-  throw new Error('Function not implemented.');
-}

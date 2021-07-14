@@ -6,7 +6,7 @@ const router = Router();
 // Model
 
 router.get('/all', controller.getAll);
-router.post('/api', controller.postListOfImage);
+router.post('/', controller.postListOfImage);
 router.get('/', controller.getListOfImage);
 
 export default router;

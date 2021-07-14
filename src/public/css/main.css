@@ -75,7 +75,7 @@ body {
       border: 1px solid #ccc;  
     }
 nav.navbar {
-    background: #000000 !important;
+    background: #3f3d3d !important;
 }}
 
 img {
@@ -87,7 +87,7 @@ img {
 .center {
     margin: auto;
     width: 60%;
-    border: 3px solid #73AD21;
+    border: 3px solid #008CBA;
     padding: 10px;
     text-align: center;
     margin-top: 3rem;
@@ -95,8 +95,11 @@ img {
 .form_class{
     margin-top: 3rem;
 }
+h1{
+ color: rgba(99, 184, 212, 0.685)
+}
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #008CBA; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;

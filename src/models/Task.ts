@@ -5,7 +5,7 @@ declare interface ITask extends Document {
   url: string;
 }
 
-export interface TaskModel extends Model<ITask> {}
+export type TaskModel = Model<ITask>
 
 const schema = new Schema({
   fileSizeBytes: { type: Number, required: true },
