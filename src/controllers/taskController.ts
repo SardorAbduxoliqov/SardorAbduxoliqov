@@ -18,7 +18,7 @@ const getListOfImage = async (req: Request, res: Response) => {
 // eslint-disable-next-line consistent-return
 const getAll = async (req: Request, res: Response) => {
   try {
-    const images = await Task.find().sort({ fileSizeBytes: -1 });
+    const images = await Task.find().sort({ fileSizeBytes: 1 });
     console.log(images[1]);
     return res.render('tasks/all', { data: images, path: '/all' });
   } catch (error) {

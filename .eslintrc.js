@@ -29,6 +29,7 @@ module.exports = {
     "no-underscore-dangle": "off",
     "no-shadow": "off",
     "camelcase":"off",
+    "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     'import/order': [
       'error',

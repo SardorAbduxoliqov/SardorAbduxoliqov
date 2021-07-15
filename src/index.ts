@@ -1,16 +1,15 @@
 import express, { RequestHandler } from 'express';
-// eslint-disable-next-line import/order
+import config from 'config';
 import  * as path from 'path';
-
-// eslint-disable-next-line import/order
-import { connect } from './database';
-
-// Routes
+import  connect from './database';
 import tasksRoutes from './routes/tasks';
 
 const app = express();
 
-app.set('port', 4000);
+const port = config.get("port") as number;
+const host = config.get("host") as string;
+
+// app.set('port', 4000);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -23,7 +22,11 @@ app.use('/', tasksRoutes);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 
-app.listen(app.get('port'), () => {
- connect();
-  console.log('>>> Server is running at', app.get('port'));
+app.listen(port, host, () => {
+  console.log(`Server listing at http://${host}:${port}`);
+
+  connect();
 });
+// app.listen(app.get('port'), () => {
+//   console.log('>>> Server is running at', app.get('port'));
+// });
