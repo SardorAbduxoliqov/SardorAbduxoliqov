@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable func-names */
@@ -18,46 +19,18 @@ const getListOfImage = async (req: Request, res: Response) => {
   }
 };
 
-// eslint-disable-next-line consistent-return
+
 const getAll = async (req: Request, res: Response) => {
-    if(req.query.search) {
-        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        // Get all campgrounds from DB
-       await Task.find({fileSizeBytes: regex}, function(err, url){
-           if(err){
-               console.log(err);
-           } else {
-              if(url.length < 1) {
-                const message = "this size image not found"
-              }
-                res.render("tasks/all",{data: url});
-           }
-        });
-    } else {
-        // Get all campgrounds from DB
-        await Task.find({}, function(err, allImages){
-           if(err){
-               console.log(err);
-           } else {
-              res.render("tasks/all",{data:allImages});
-           }
-        });
-    }
-  // try {
-  //   const images = await Task.find().sort({ fileSizeBytes: 1 });
-  //   console.log(images[1]);
-  //   return res.render('tasks/all', { data: images, path: '/all' });
-  // } catch (error) {
-  //   console.log(error.message);
-  // }
+  try {
+    const images = await Task.find().sort({ fileSizeBytes: 1 });
+    console.log(images[1]);
+    return res.render('tasks/all', { data: images, path: '/all' });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-const postListOfImage = async (
-  req: Request,
-  res: Response
-  // eslint-disable-next-line consistent-return
-) => {
-  // eslint-disable-next-line no-undef
+const postListOfImage = async (req: Request, res: Response) => {
   try {
     const imageData = await axios.get(URL_API);
     console.log(imageData, 'post request is working!');
@@ -68,13 +41,23 @@ const postListOfImage = async (
   }
 };
 
-
-function escapeRegex(text: RegExpExecArray ) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
-
+const getSearchResult = async (req: Request, res: Response) => {
+  try {
+    await Task.find({$or:[{fileSizeBytes:{'$regex': req.query.search}}, {url:{'$regex':req.query.search}}]}, (err,data)=>{
+      if(err){
+            console.log(err);
+        }else{
+            res.render('tasks/all',{ data, path: "/all" });
+        }
+    })
+  } catch (error) {
+     console.log(error);
+  }
+}
+  
 export default {
   getListOfImage,
   getAll,
   postListOfImage,
-};
+  getSearchResult,
+}

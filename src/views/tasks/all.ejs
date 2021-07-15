@@ -4,14 +4,14 @@
    <% if (data != null) {%>
                 <div class="center">
                   <h1>Images are sorted by size.</h1>
-                 <% data.forEach(item => { %>
+                  <%for(var i=0;i< data.length;i++){%>
                         <h3>
-                           Image Size:  <%= item.fileSizeBytes %>
+                           Image Size:  <%=data[i].fileSizeBytes%>
                         </h3>
                     <div class="item-center">
-                        <img class="main_img" src="<%= item.url %>" alt="rasm bo'lishi kerak edi.">
+                        <img class="main_img" src="<%=data[i].url%>" alt="rasm bo'lishi kerak edi.">
                     </div>
-                    <% }) %>
+                    <% }%>
             <% } else { %>
                 <h1>No image found</h1>
                 <% } %>
