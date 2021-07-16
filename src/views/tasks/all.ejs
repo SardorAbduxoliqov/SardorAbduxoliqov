@@ -1,17 +1,17 @@
 <%- include('../includes/head') %>
    <%- include('../includes/header') %>
        
-   <% if (data != null) {%>
+   <% if (data.length > 0) {%>
                 <div class="center">
                   <h1>Images are sorted by size.</h1>
-                  <%for(var i=0;i< data.length;i++){%>
+                  <% data.forEach(item => {%>
                         <h3>
-                           Image Size:  <%=data[i].fileSizeBytes%>
+                           Image Size:  <%=item.fileSizeBytes%>
                         </h3>
                     <div class="item-center">
-                        <img class="main_img" src="<%=data[i].url%>" alt="rasm bo'lishi kerak edi.">
+                        <img class="main_img" src="<%=item.url%>" alt="rasm bo'lishi kerak edi.">
                     </div>
-                    <% }%>
+                    <% })%>
             <% } else { %>
                 <h1>No image found</h1>
                 <% } %>

@@ -13,7 +13,7 @@ const URL_API = 'https://random.dog/woof.json';
 const getListOfImage = async (req: Request, res: Response) => {
   try {
     const imageData = await axios.get(URL_API);
-    return res.render('tasks/list', { data: imageData.data, path: '/' });
+    return res.render('tasks/renderImage', { data: imageData.data, path: '/' });
   } catch (error) {
     console.log(error.message);
   }

@@ -1,7 +1,6 @@
 <%- include('../includes/head') %>
   <%- include('../includes/header') %>
-  <% if (data !=null) {%>
-    
+       
     <div class="center form_class">
       <h3 id="fileSizeBytes">
         Image Size: <%- data.fileSizeBytes %>
@@ -9,9 +8,6 @@
       <div class="item-center">
         <img class="main_img" src="<%- data.url %>" id="imageUrl" alt="rasm bo'lishi kerak edi.">
       </div>
-      <% } else { %>
-        <h1>No image found</h1>
-        <% } %>
       <form action="/" method="POST">
         <button type="submit" class="button button2">Save Image</button>
       </form>

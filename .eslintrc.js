@@ -18,7 +18,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier', 'import'],
+  plugins: ['@typescript-eslint', 'import'],
   rules: {
     'prettier/prettier': 'off',
     'import/extensions': 'off',
@@ -26,9 +26,6 @@ module.exports = {
     'no-console': 'off',
     "no-use-before-define": "off",
     "no-path-concat": "off",
-    "no-underscore-dangle": "off",
-    "no-shadow": "off",
-    "camelcase":"off",
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     'import/order': [
@@ -48,11 +45,7 @@ module.exports = {
     },
     'import/resolver': {
       typescript: {
-        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-
-        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
-
-        // use <root>/path/to/folder/tsconfig.json
+        alwaysTryTypes: true, 
         project: './tsconfig.json',
       },
     },

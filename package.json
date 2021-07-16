@@ -14,13 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "body-parser": "^1.19.0",
-    "config": "^3.3.6",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongoose": "^5.4.20",
-    "morgan": "^1.9.1",
     "rimraf": "^2.6.3"
   },
   "devDependencies": {
@@ -40,7 +37,6 @@
     "nodemon": "^1.18.10",
     "prettier": "^2.3.2",
     "ts-node": "^8.0.3",
-    "tsconfig-paths": "^3.10.1",
     "typescript": "^3.3.4000"
   }
 }

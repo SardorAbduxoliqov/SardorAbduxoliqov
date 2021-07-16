@@ -36,7 +36,7 @@ body {
     float: right;
   }
   
-  .topnav input[type=number] {
+  .topnav input {
     padding: 6px;
     margin-top: 8px;
     font-size: 17px;
@@ -63,7 +63,7 @@ body {
     .topnav .search-container {
       float: none;
     }
-    .topnav a, .topnav input[type=text], .topnav .search-container button {
+    .topnav a, .topnav input, .topnav .search-container button {
       float: none;
       display: block;
       text-align: left;
@@ -71,7 +71,7 @@ body {
       margin: 0;
       padding: 14px;
     }
-    .topnav input[type=text] {
+    .topnav input {
       border: 1px solid #ccc;  
     }
 nav.navbar {
